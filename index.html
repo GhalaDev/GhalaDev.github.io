@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-l="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="favicon.svg">
+<meta property="og:title" content="Ghala Salem Al-Salem · Portfolio">
+<meta property="og:description" content="AI & Cloud · Projects, certifications, workshops and leadership">
+<title>Ghala Salem Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Ghala Salem Al-Salem — AI & Cloud. Projects, certifications, workshops and leadership.">
+<style>
+/* Layout concept: the portfolio reads like an ML "model card" — a spec panel up top, then field-labelled sections (projects, certifications, talks, leadership) on a deep navy ground with one cyan signal colour. */
+:root{
+  --ink:#060c1a;        /* page ground */
+  --deep:#0a1428;       /* panels */
+  --panel:#0e1a33;      /* raised panels */
+  --line:#1c2c50;       /* hairlines */
+  --fg:#e7edf9;         /* text */
+  --mute:#8d9cc2;       /* secondary text */
+  --sig:#9db0db;        /* navy-blue accent for text and lines */
+  --navy:#1f3466;       /* navy fill for buttons */
+  --sig-dim:rgba(157,176,219,.14);
+  --amber:#ffc178;      /* metric highlight, used sparingly */
+  --f-ar:"Alexandria","Segoe UI",Tahoma,sans-serif;
+  --f-disp:"League Spartan","Alexandria","Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:14px;
+  color-scheme:dark;
+}
+@font-face{font-family:"Alexandria";src:url(fonts/alexandria-arabic-400-normal.woff2) format("woff2");font-weight:400;unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF;font-display:swap}
+@font-face{font-family:"Alexandria";src:url(fonts/alexandria-arabic-500-normal.woff2) format("woff2");font-weight:500;unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF;font-display:swap}
+@font-face{font-family:"Alexandria";src:url(fonts/alexandria-arabic-700-normal.woff2) format("woff2");font-weight:700;unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF;font-display:swap}
+@font-face{font-family:"Alexandria";src:url(fonts/alexandria-arabic-800-normal.woff2) format("woff2");font-weight:800;unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFF;font-display:swap}
+@font-face{font-family:"Alexandria";src:url(fonts/alexandria-latin-500-normal.woff2) format("woff2");font-weight:400 500;unicode-range:U+0000-00FF,U+2000-206F;font-display:swap}
+@font-face{font-family:"Alexandria";src:url(fonts/alexandria-latin-700-normal.woff2) format("woff2");font-weight:700;unicode-range:U+0000-00FF,U+2000-206F;font-display:swap}
+@font-face{font-family:"Alexandria";src:url(fonts/alexandria-latin-800-normal.woff2) format("woff2");font-weight:800;unicode-range:U+0000-00FF,U+2000-206F;font-display:swap}
+@font-face{font-family:"League Spartan";src:url(fonts/league-spartan-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"League Spartan";src:url(fonts/league-spartan-latin-800-normal.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url(fonts/jetbrains-mono-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+img{max-width:100%}
+html{background:var(--ink)}
+body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--f-ar);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--ink)}
+html[data-l="ar"] .en, html[data-l="en"] .ar{display:none!important}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sig);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-weight:500;letter-spacing:.02em}
+h1,h2,h3{margin:0;text-wrap:balance;line-height:1.25}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(6,12,26,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-mono);font-size:13px;color:var(--mute)}
+.brand b{color:var(--fg);font-weight:700}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--sig);box-shadow:0 0 0 4px var(--sig-dim)}
+.nav{display:flex;gap:4px;align-items:center}
+.nav a{font-size:14px;color:var(--mute);text-decoration:none;padding:6px 10px;border-radius:8px}
+.nav a:hover{color:var(--fg);background:var(--panel)}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--deep)}
+.lang button{all:unset;cursor:pointer;font-size:12.5px;padding:4px 11px;border-radius:999px;color:var(--mute);font-family:var(--f-ar);line-height:1.4}
+.lang button[aria-pressed="true"]{background:var(--navy);color:#fff;font-weight:700}
+@media (max-width:760px){.nav a{display:none}}
+
+/* hero */
+.hero{position:relative;border-bottom:1px solid var(--line);overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(80% 70% at 85% 0%,rgba(157,176,219,.10),transparent 60%),linear-gradient(to bottom,transparent 60%,var(--ink));pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .95fr;gap:40px;align-items:center;padding-block:72px 64px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-ar);font-size:12.5px;color:var(--sig);border:1px solid rgba(157,176,219,.35);background:var(--sig-dim);padding:5px 12px;border-radius:999px}
+.hero h1{font-size:clamp(38px,6.4vw,68px);font-weight:800;margin-top:18px;letter-spacing:-.01em}
+.hero h1 .en{font-family:var(--f-disp);letter-spacing:-.02em;line-height:1.02}
+.hero h1 .accent{color:var(--sig)}
+.role{font-size:clamp(17px,2.2vw,21px);color:var(--fg);margin-top:14px;font-weight:500}
+.lede{color:var(--mute);max-width:56ch;margin-top:12px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:14px;font-weight:500;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--deep);color:var(--fg);transition:border-color .2s,background .2s}
+.btn:hover{border-color:var(--sig);background:var(--panel)}
+.btn.primary{background:var(--navy);color:#fff;border-color:#34508f;font-weight:700}
+.btn.primary:hover{background:#28417c}
+.btn svg{width:17px;height:17px;flex:none}
+
+/* model card */
+.card-spec{background:linear-gradient(180deg,var(--panel),var(--deep));border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.spec-head{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-mono);font-size:12px;color:var(--mute);padding-bottom:14px;border-bottom:1px dashed var(--line)}
+.spec-head .ok{color:#7ff0b5;display:inline-flex;align-items:center;gap:6px}
+.spec-head .ok::before{content:"";width:7px;height:7px;border-radius:50%;background:#7ff0b5}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:9px 16px;margin:16px 0 0;font-size:14px}
+.spec dt{font-family:var(--f-mono);font-size:12px;color:var(--mute);padding-top:2px;direction:ltr;text-align:start}
+.spec dd{margin:0;min-width:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+.stat{background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 8px;text-align:center}
+.stat b{direction:ltr;display:block;font-family:var(--f-mono);font-size:22px;color:var(--amber);font-weight:700;line-height:1.2;font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--mute)}
+
+/* sections */
+section{padding-block:76px 20px;scroll-margin-top:70px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:28px}
+.field{font-family:var(--f-mono);font-size:12.5px;color:var(--sig);direction:ltr;display:inline-block}
+.sec-head h2{font-size:clamp(26px,3.6vw,36px);font-weight:800;margin-top:6px}
+.sec-head p{color:var(--mute);margin:6px 0 0;max-width:60ch}
+
+/* projects */
+.projects{display:grid;gap:22px}
+.proj{display:grid;grid-template-columns:1.05fr 1fr;background:var(--deep);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.proj:nth-child(even) .shot{order:2}
+.shot{position:relative;background:#030711;min-height:260px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-inline-end:1px solid var(--line)}
+.proj:nth-child(even) .shot{border-inline-end:0;border-inline-start:1px solid var(--line)}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.shot.fit img{object-fit:contain;padding:44px 14px 14px}
+.shot.tall img{object-fit:cover;object-position:center 40%}
+.shot .badge{position:absolute;top:14px;inset-inline-start:14px;z-index:2;font-family:var(--f-mono);font-size:11.5px;background:rgba(6,12,26,.85);border:1px solid var(--line);padding:4px 10px;border-radius:999px;color:var(--sig);direction:ltr}
+.pbody{padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.ctx{font-size:13px;color:var(--mute);display:flex;align-items:center;gap:8px}
+.ctx::before{content:"";width:18px;height:1px;background:var(--sig)}
+.pbody h3{font-size:24px;font-weight:800}
+.pbody h3 .en,.pbody h3 .lat{font-family:var(--f-disp);letter-spacing:-.01em}
+.pbody p{margin:0;color:#c9d3ea}
+.pipe{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px}
+.pipe li{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:3px 9px;color:var(--fg)}
+.pipe li.arr{background:none;border:0;padding:0;color:var(--sig);font-family:var(--f-mono)}
+html[data-l="ar"] .pipe li.arr{transform:scaleX(-1)}
+.result{display:flex;gap:10px;align-items:flex-start;background:rgba(255,193,120,.07);border:1px solid rgba(255,193,120,.25);border-radius:10px;padding:10px 12px;font-size:14px}
+.result .mono{color:var(--amber);font-size:11.5px;padding-top:3px;white-space:nowrap}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--f-mono);font-size:11.5px;color:var(--mute);border:1px solid var(--line);padding:2px 9px;border-radius:999px;direction:ltr}
+.plinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:4px}
+.plinks .btn{padding:8px 13px;font-size:13px}
+
+/* drone svg */
+.mission{position:absolute;inset:0;width:100%;height:100%;background:
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/28px 28px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/28px 28px,#040916}
+.mission svg{position:absolute;inset:0;width:100%;height:100%;direction:ltr}
+
+/* certs */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{all:unset;cursor:pointer;font-size:13.5px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);color:var(--mute);background:var(--deep)}
+.chip[aria-pressed="true"]{color:#fff;background:var(--navy);border-color:#34508f;font-weight:700}
+.chip:focus-visible{outline:2px solid var(--sig);outline-offset:2px}
+.certs{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.cert{all:unset;cursor:pointer;display:flex;flex-direction:column;background:var(--deep);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:transform .2s,border-color .2s}
+.cert:hover{border-color:rgba(157,176,219,.55);transform:translateY(-3px)}
+.cert:focus-visible{outline:2px solid var(--sig);outline-offset:3px}
+.cert .thumb{aspect-ratio:16/10;background:#fff;overflow:hidden;max-width:100%}
+.cert .thumb img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.cert .cb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cert .iss{font-family:var(--f-mono);font-size:11.5px;color:var(--sig);direction:ltr;text-align:start}
+.cert h3{font-size:14px;font-weight:700;line-height:1.45;direction:ltr;text-align:start;font-family:var(--f-ar)}
+.cert .meta{font-size:12.5px;color:var(--mute);margin-top:auto;display:flex;justify-content:space-between;gap:8px;font-variant-numeric:tabular-nums}
+.cert .kind{font-size:11px;padding:1px 8px;border-radius:999px;border:1px solid var(--line)}
+.cert .kind.pro{color:var(--amber);border-color:rgba(255,193,120,.35)}
+.cert[hidden]{display:none}
+
+/* talks */
+.talk{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;background:var(--deep);border:1px solid var(--line);border-radius:18px;padding:24px}
+.gallery{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.gallery button{all:unset;cursor:zoom-in;border-radius:12px;overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4;max-width:100%}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block}
+.talk-info{display:flex;flex-direction:column;gap:16px;min-width:0}
+.event{font-family:var(--f-mono);font-size:12.5px;color:var(--mute);display:flex;flex-wrap:wrap;gap:6px 14px;direction:ltr}
+.html-ar .event{direction:rtl}
+.ws{border-inline-start:2px solid var(--sig);padding-inline-start:14px}
+.ws h3{font-size:18px;font-weight:700}
+.ws p{margin:4px 0 0;color:var(--mute);font-size:14.5px}
+.ws ol{margin:8px 0 0;padding-inline-start:20px;color:#c9d3ea;font-size:14px}
+
+/* leadership */
+.lead{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lcard{background:var(--deep);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.lcard .when{font-family:var(--f-mono);font-size:12px;color:var(--sig)}
+.lcard h3{font-size:18px;font-weight:700}
+.lcard p{margin:0;color:#c9d3ea;font-size:14.5px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}
+.nums div{background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 4px;text-align:center;font-size:11.5px;color:var(--mute)}
+.nums.n4{grid-template-columns:repeat(4,1fr)}
+.nums b{direction:ltr;display:block;font-family:var(--f-mono);color:var(--amber);font-size:17px;font-variant-numeric:tabular-nums}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sk{background:var(--deep);border:1px solid var(--line);border-radius:var(--r);padding:18px;min-width:0}
+.sk h3{font-size:15px;font-weight:700;margin-bottom:10px}
+
+/* footer */
+footer{margin-top:80px;border-top:1px solid var(--line);padding-block:44px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px}
+footer h2{font-size:24px;font-weight:800}
+footer p{color:var(--mute);margin:4px 0 0}
+.copy{font-family:var(--f-mono);font-size:12px;color:var(--mute);width:100%;padding-top:20px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(3,6,14,.9);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb-in{max-width:min(960px,100%);width:100%;display:flex;flex-direction:column;gap:14px;max-height:100%}
+.lb img{width:100%;max-height:72vh;max-height:72dvh;object-fit:contain;border-radius:12px;background:#fff}
+.lb .lb-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px}
+.lb .lb-t{font-weight:700;direction:ltr}
+.lb .lb-actions{display:flex;flex-wrap:wrap;gap:8px}
+.lb .x{all:unset;cursor:pointer;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:10px;background:var(--deep)}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding-block:52px 44px}
+  .proj{grid-template-columns:1fr}
+  .proj:nth-child(even) .shot{order:0;border-inline-start:0}
+  .shot{border-inline-end:0;border-bottom:1px solid var(--line);min-height:220px;aspect-ratio:16/10}
+  .shot.tall{aspect-ratio:4/3}
+  .certs{grid-template-columns:repeat(2,1fr)}
+  .talk{grid-template-columns:1fr}
+  .lead{grid-template-columns:1fr}
+  .skills{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .certs{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .skills{grid-template-columns:1fr}
+  .pbody{padding:20px}
+  section{padding-block:56px 10px}
+}
+
+/* featured credential */
+.feat{position:relative;overflow:hidden;display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;margin-bottom:22px;padding:22px 24px;border-radius:18px;border:1px solid rgba(255,200,120,.55);background:linear-gradient(110deg,rgba(255,193,120,.16),rgba(255,193,120,.04) 40%,var(--deep) 70%);box-shadow:0 0 0 1px rgba(255,193,120,.10),0 18px 50px -20px rgba(255,180,90,.35)}
+.feat::after{content:"";position:absolute;inset:-40% auto -40% -30%;width:22%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,226,170,.22),transparent);animation:sheen 5.5s ease-in-out infinite;pointer-events:none}
+.feat>*{position:relative;z-index:1}
+@keyframes sheen{0%{left:-30%}45%,100%{left:130%}}
+.feat .medal{width:104px;height:104px;border-radius:50%;overflow:hidden;flex:none;box-shadow:0 0 0 4px rgba(255,193,120,.25),0 0 28px rgba(255,193,120,.35)}
+.feat .medal img{width:100%;height:100%;object-fit:cover;display:block}
+.feat .ftxt{min-width:0;display:flex;flex-direction:column;gap:6px}
+.feat .ftxt .mono{font-size:12px;color:var(--amber)}
+.feat h3{font-size:21px;font-weight:800}
+.feat p{margin:0;color:#c9d3ea;font-size:14.5px}
+.feat .fmeta{font-family:var(--f-mono);font-size:11.5px;color:var(--mute);direction:ltr;text-align:start}
+.feat .plinks{margin:0;padding:0;flex-direction:column}
+/* courses taught */
+.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.crs{background:var(--deep);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.crs .cw{display:flex;justify-content:space-between;gap:8px;align-items:center;font-family:var(--f-mono);font-size:11.5px;color:var(--mute)}
+.crs .rel{color:var(--sig);border:1px solid rgba(157,176,219,.35);padding:1px 8px;border-radius:999px}
+.crs h3{font-size:16px;font-weight:700}
+.crs p{margin:0;color:var(--mute);font-size:13.5px}
+.crs .btn{align-self:flex-start;padding:6px 12px;font-size:12.5px;margin-top:auto}
+@media (max-width:900px){.courses{grid-template-columns:1fr 1fr}.feat{grid-template-columns:auto 1fr}.feat .plinks{grid-column:1/-1;flex-direction:row}}
+@media (max-width:560px){.courses{grid-template-columns:1fr}.feat{grid-template-columns:1fr;text-align:start}.feat .medal{width:84px;height:84px}}
+/* professional certifications showcase */
+.pro-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:40px}
+.pro{direction:ltr;text-align:left;position:relative;overflow:hidden;display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center;padding:26px;border-radius:20px;border:1.5px solid transparent;
+  background:linear-gradient(160deg,#111f3f,#0a1428 60%) padding-box,linear-gradient(135deg,#f6dc98,#8f6b2c 30%,#fbe9b7 55%,#7a5a22 80%,#f1d08a) border-box;
+  box-shadow:0 24px 60px -28px rgba(255,186,90,.45)}
+.pro::after{content:"";position:absolute;inset:-50% auto -50% -40%;width:24%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,230,180,.16),transparent);animation:sheen 7s ease-in-out infinite;pointer-events:none}
+.pro:nth-child(2)::after{animation-delay:3.5s}
+.pro>*{position:relative;z-index:1}
+.pro .ar{direction:rtl;unicode-bidi:isolate}
+.pro .bdg{width:150px;height:150px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:radial-gradient(circle,rgba(255,210,140,.22),rgba(255,210,140,0) 68%)}
+.pro .bdg img{max-width:124px;max-height:132px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.45))}
+.pro .pinfo{display:flex;flex-direction:column;gap:8px;min-width:0}
+.pro .ribbon{align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:.04em;color:#2a1d05;background:linear-gradient(135deg,#f7dc96,#d9ac55);padding:3px 12px;border-radius:999px}
+.pro h3{font-size:22px;font-weight:800;line-height:1.3;direction:ltr;text-align:start;font-family:var(--f-ar)}
+.pro .piss{font-size:14px;color:var(--amber);direction:ltr;text-align:start;font-weight:700}
+.pro dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:2px 0 0;font-size:12px;direction:ltr;text-align:start}
+.pro dt{font-family:var(--f-mono);color:var(--mute)}
+.pro dd{margin:0;font-family:var(--f-mono);color:var(--fg);overflow-wrap:anywhere}
+.pro .plinks{margin-top:6px}
+.sub-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px}
+.sub-head h3{font-size:19px;font-weight:700}
+@media (max-width:900px){.pro-row{grid-template-columns:1fr}}
+@media (max-width:560px){.pro{grid-template-columns:1fr;justify-items:start;padding:22px}.pro .bdg{width:120px;height:120px}.pro .bdg img{max-width:100px;max-height:108px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.feat::after,.pro::after{animation:none;display:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="dot"></span><b>GhalaDev</b><span>/ portfolio</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#projects"><span class="ar">المشاريع</span><span class="en">Projects</span></a>
+      <a href="#certs"><span class="ar">الشهادات</span><span class="en">Certifications</span></a>
+      <a href="#talks"><span class="ar">الدورات</span><span class="en">Teaching</span></a>
+      <a href="#lead"><span class="ar">القيادة</span><span class="en">Leadership</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="l-ar" data-set="ar" aria-pressed="true">عربي</button>
+      <button type="button" id="l-en" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><span class="ar">ذكاء اصطناعي · حوسبة سحابية · ذكاء توليدي</span><span class="en">AI · Cloud · Generative AI</span></span>
+      <h1><span class="ar">غلا سالم <span class="accent">آل سالم</span></span><span class="en">Ghala Salem <span class="accent">Al-Salem</span></span></h1>
+      <div class="role"><span class="ar">طالبة علوم حاسب، جامعة نجران · مطوّرة حلول ذكاء اصطناعي</span><span class="en">Computer Science student, Najran University · AI solutions developer</span></div>
+      <p class="lede"><span class="ar">أبني تطبيقات ذكاء اصطناعي تعمل فعلًا: من نماذج اللغة والتوليد، إلى استرجاع المعرفة (RAG) ورؤية الحاسب، وأنشرها على Hugging Face ليجربها أي شخص. أحمل شهادات احترافية من Microsoft وNVIDIA وAWS، وأقدّم ورش عمل، وأقود فرقًا طلابية.</span><span class="en">I build AI applications that actually run: language and generative models, retrieval-augmented generation (RAG) and computer vision, deployed on Hugging Face for anyone to try. I hold professional certifications from Microsoft, NVIDIA and AWS, deliver workshops, and lead student teams.</span></p>
+      <div class="links">
+        <a class="btn primary" href="#projects"><span class="ar">استعرض المشاريع</span><span class="en">See projects</span></a>
+        <a class="btn" href="https://www.linkedin.com/in/ghalasalem" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.35h-4v-4.74c0-1.13-.02-2.59-1.58-2.59-1.58 0-1.82 1.23-1.82 2.5v4.83h-4z"/></svg>LinkedIn</a>
+        <a class="btn" href="https://github.com/GhalaDev" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</a>
+        <a class="btn" href="https://huggingface.co/GhalaDev" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M8.5 14.5c1.8 1.8 5.2 1.8 7 0"/></svg>Hugging Face</a>
+        <a class="btn" href="https://x.com/Spark1e_G" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8.1-9.3L1 2h7l4.8 6.3zM17.7 20h1.7L7.4 3.9H5.6z"/></svg>X</a>
+      </div>
+    </div>
+
+    <aside class="card-spec" aria-label="Profile summary">
+      <div class="spec-head"><span>model_card.yaml</span><span class="ok">deployed</span></div>
+      <dl class="spec">
+        <dt>name</dt><dd><span class="ar">غلا سالم آل سالم</span><span class="en">Ghala Salem Al-Salem</span></dd>
+        <dt>education</dt><dd><span class="ar">بكالوريوس علوم الحاسب، جامعة نجران، المستوى التاسع</span><span class="en">B.Sc. Computer Science, Najran University, level 9</span></dd>
+        <dt>domains</dt><dd><span class="ar">ذكاء توليدي · RAG · رؤية حاسب · سحابة</span><span class="en">GenAI · RAG · Computer Vision · Cloud</span></dd>
+        <dt>certified_by</dt><dd>Microsoft · NVIDIA · AWS · SDAIA</dd>
+        <dt>also</dt><dd><span class="ar">قائدة لجنة كتابة المحتوى، ومقدّمة دورات وورش</span><span class="en">Content committee lead, trainer and speaker</span></dd>
+      </dl>
+      <div class="stats">
+        <div class="stat"><b>5</b><span class="ar">مشاريع</span><span class="en">projects</span></div>
+        <div class="stat"><b>13</b><span class="ar">شهادة</span><span class="en">certificates</span></div>
+        <div class="stat"><b>+8</b><span class="ar">دورات وورش</span><span class="en">courses taught</span></div>
+        <div class="stat"><b>+1000</b><span class="ar">مستفيد</span><span class="en">people reached</span></div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="field">// projects</span><h2><span class="ar">المشاريع</span><span class="en">Projects</span></h2>
+      <p><span class="ar">مشاريع نفذتها من الفكرة حتى النشر، وأغلبها يعمل مباشرة ويمكن تجربته.</span><span class="en">Projects I took from idea to deployment. Most are live and ready to try.</span></p></div>
+    </div>
+
+    <div class="feat">
+      <div class="medal"><img src="img/badge-bootcamp.jpg" alt="Generative AI Bootcamp Distinction badge, Najran University 2026"></div>
+      <div class="ftxt">
+        <span class="mono">DISTINCTION · TOP 3</span>
+        <h3><span class="ar">تميّز في معسكر الذكاء التوليدي الصيفي</span><span class="en">Generative AI Summer Bootcamp: Distinction</span></h3>
+        <p><span class="ar">حصلت على تقدير التميّز وكنت ضمن أفضل 3 مشاركين في المعسكر (40 ساعة) الذي نظّمه فريق الذكاء الاصطناعي بجامعة نجران، واختير مشروعي النهائي AI BoardGame Forge ضمن أفضل مشاريع المعسكر. كما نفّذت خلال المعسكر مشروعي GamerRadar وStoryLens AI.</span><span class="en">Awarded Distinction as one of the top 3 participants in the 40-hour bootcamp run by Najran University's AI Team. My final project, AI BoardGame Forge, was selected among the bootcamp's best projects. I also built GamerRadar and StoryLens AI during the bootcamp.</span></p>
+        <span class="fmeta">Issued 2026-07-17 · Credential ID c1c35d706283cb1f · Open Badges 3.0</span>
+      </div>
+      <div class="plinks">
+        <a class="btn primary" href="https://yazeedalrubyli.github.io/genai-bootcamp-credentials/v/c1c35d706283cb1f" target="_blank" rel="noopener"><span class="ar">تحقق من الشهادة</span><span class="en">Verify credential</span></a>
+        <button type="button" class="btn" data-cert="genai-bootcamp"><span class="ar">عرض الشهادة</span><span class="en">View</span></button>
+      </div>
+    </div>
+
+    <div class="projects">
+      <!-- 1 -->
+      <article class="proj">
+        <div class="shot fit"><span class="badge">Generative AI · LLM</span><img src="img/proj-boardgame.jpg" alt="AI BoardGame Forge interface showing a generated Robot Uprising game with four illustrated cards"></div>
+        <div class="pbody">
+          <div class="ctx"><span class="ar">المشروع النهائي، ومن أفضل مشاريع معسكر الذكاء التوليدي الصيفي</span><span class="en">Final project, among the best of the Generative AI Summer Bootcamp</span></div>
+          <h3 class="lat">AI BoardGame Forge</h3>
+          <p><span class="ar">تطبيق يحوّل أي فكرة يكتبها المستخدم إلى لعبة لوحية متكاملة: اسم اللعبة ووصفها وقواعدها، وأربع بطاقات لكل منها نوع وقدرة خاصة، مع رسم فني مولّد بالذكاء الاصطناعي لكل بطاقة وتصميم بطاقة جاهز.</span><span class="en">Turns any theme a user types into a complete board game: title, description and rules, plus four cards each with a type and ability, AI-generated artwork for every card, and finished trading-card layouts.</span></p>
+          <ul class="pipe" aria-label="Pipeline">
+            <li><span class="ar">الفكرة</span><span class="en">Theme</span></li><li class="arr">→</li>
+            <li>Qwen2.5 → JSON</li><li class="arr">→</li>
+            <li><span class="ar">رسم البطاقات</span><span class="en">Card artwork</span></li><li class="arr">→</li>
+            <li><span class="ar">تصميم بـ Pillow</span><span class="en">Pillow layout</span></li>
+          </ul>
+          <div class="result"><span class="mono">OUTPUT</span><span><span class="ar">لعبة كاملة بضغطة زر: عنوان، وصف، 5 قواعد، و4 بطاقات مصممة.</span><span class="en">A full game in one click: title, description, 5 rules and 4 designed cards.</span></span></div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Qwen2.5-0.5B-Instruct</span><span class="tag">Transformers</span><span class="tag">PyTorch</span><span class="tag">Gradio</span><span class="tag">Pillow</span><span class="tag">Pollinations AI</span></div>
+          <div class="plinks">
+            <a class="btn primary" href="https://huggingface.co/spaces/GhalaDev/AI_BoardGames_Forge" target="_blank" rel="noopener"><span class="ar">جرّب التطبيق</span><span class="en">Live demo</span></a>
+            <a class="btn" href="https://github.com/GhalaDev/AI-BoardGame-Forge" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://colab.research.google.com/drive/1u49GeKnfWjptVfs6fuvpqb2cTRp6X9Zb?usp=sharing" target="_blank" rel="noopener">Colab</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="proj">
+        <div class="shot fit"><span class="badge">RAG · Chatbot</span><img src="img/proj-gamerradar.jpg" alt="GamerRadar chatbot recommending Hollow Knight to a user who liked Tomb Raider"></div>
+        <div class="pbody">
+          <div class="ctx"><span class="ar">معسكر الذكاء التوليدي الصيفي، جامعة نجران</span><span class="en">Generative AI Summer Bootcamp, Najran University</span></div>
+          <h3 class="lat">GamerRadar</h3>
+          <p><span class="ar">مساعد ذكي يقترح ألعاب فيديو بناءً على ذوق المستخدم. تكتب له لعبة أعجبتك، فيبحث في قاعدة بيانات ألعاب مخصصة عن الأقرب لها، ثم يصوغ اقتراحًا مقنعًا يشرح سبب الترشيح.</span><span class="en">A smart assistant that recommends video games from a user's taste. Name a game you liked; it searches a curated games dataset for the closest matches, then writes a recommendation that explains why.</span></p>
+          <ul class="pipe" aria-label="Pipeline">
+            <li>CSV</li><li class="arr">→</li>
+            <li>MiniLM embeddings</li><li class="arr">→</li>
+            <li>ChromaDB top-2</li><li class="arr">→</li>
+            <li>Gemini 2.5 Flash</li>
+          </ul>
+          <div class="result"><span class="mono">OUTPUT</span><span><span class="ar">توصيات مبنية على بيانات حقيقية بدل التخمين، عبر خط RAG كامل بلغة LCEL.</span><span class="en">Recommendations grounded in real data instead of guesswork, through a full RAG pipeline in LCEL.</span></span></div>
+          <div class="tags"><span class="tag">LangChain</span><span class="tag">LCEL</span><span class="tag">ChromaDB</span><span class="tag">all-MiniLM-L6-v2</span><span class="tag">Gemini 2.5 Flash</span><span class="tag">Gradio</span><span class="tag">Pandas</span></div>
+          <div class="plinks">
+            <a class="btn primary" href="https://huggingface.co/spaces/GhalaDev/GamerRadar-RAG-Chatbot" target="_blank" rel="noopener"><span class="ar">جرّب التطبيق</span><span class="en">Live demo</span></a>
+            <a class="btn" href="https://github.com/GhalaDev/GamerRadar-RAG-Chatbot" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://colab.research.google.com/drive/1pnGiaPgC5m2-0tgVUG267LiqWbmrgThM?usp=sharing" target="_blank" rel="noopener">Colab</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="proj">
+        <div class="shot tall"><span class="badge">Multimodal AI</span><img src="img/proj-storylens.jpg" alt="StoryLens AI captioning a movie still and generating a short story from it"></div>
+        <div class="pbody">
+          <div class="ctx"><span class="ar">محور الذكاء متعدد الوسائط، معسكر الذكاء التوليدي الصيفي</span><span class="en">Multimodal AI module, Generative AI Summer Bootcamp</span></div>
+          <h3 class="lat">StoryLens AI</h3>
+          <p><span class="ar">تطبيق متعدد الوسائط يستقبل صورة، فيصفها نموذج رؤية، ثم يحوّل الوصف إلى قصة قصيرة بأسلوب الكتابة الذي يختاره المستخدم، مع التحكم في طول القصة.</span><span class="en">A multimodal app: upload an image, a vision model describes it, then the description becomes a short story in the writing style the user picks, with control over story length.</span></p>
+          <ul class="pipe" aria-label="Pipeline">
+            <li><span class="ar">صورة</span><span class="en">Image</span></li><li class="arr">→</li>
+            <li>Image captioning</li><li class="arr">→</li>
+            <li>LLM story</li>
+          </ul>
+          <div class="result"><span class="mono">OUTPUT</span><span><span class="ar">من صورة واحدة إلى وصف وقصة مكتملة في واجهة واحدة.</span><span class="en">From one image to a caption and a complete story, in one interface.</span></span></div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Vision-Language</span><span class="tag">Hugging Face</span><span class="tag">Gradio</span></div>
+          <div class="plinks">
+            <a class="btn primary" href="https://huggingface.co/spaces/GhalaDev/AI-StoryTeller" target="_blank" rel="noopener"><span class="ar">جرّب التطبيق</span><span class="en">Live demo</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="proj">
+        <div class="shot tall"><span class="badge">Computer Vision · YOLO</span><img src="img/proj-plant.jpg" alt="Colab notebook classifying an apple leaf as Healthy with 85.07 percent confidence, next to a confusion matrix"></div>
+        <div class="pbody">
+          <div class="ctx"><span class="ar">معسكر "رؤية الحاسب للمطورين"، سدايا</span><span class="en">"Computer Vision for Developers" bootcamp, SDAIA</span></div>
+          <h3><span class="ar">اكتشاف أمراض النباتات</span><span class="en">Plant Disease Detection</span></h3>
+          <p><span class="ar">نموذج رؤية حاسب يصنّف صور أوراق النباتات إلى سليمة أو مصابة بالبياض الدقيقي (Powdery) أو الصدأ (Rust)، دُرّب بنموذج YOLO للتصنيف وقُيّم بمصفوفة الالتباس.</span><span class="en">A computer vision model that classifies leaf images as Healthy, Powdery mildew or Rust. Trained with a YOLO classification model and evaluated with a confusion matrix.</span></p>
+          <ul class="pipe" aria-label="Pipeline">
+            <li><span class="ar">صور الأوراق</span><span class="en">Leaf images</span></li><li class="arr">→</li>
+            <li>YOLO-cls train</li><li class="arr">→</li>
+            <li>best.pt</li><li class="arr">→</li>
+            <li>Predict</li>
+          </ul>
+          <div class="result"><span class="mono">SAMPLE</span><span><span class="ar">صورة اختبار: Healthy بثقة 85.07%، في 52.3 ملّي ثانية للصورة.</span><span class="en">Test image: Healthy at 85.07% confidence, 52.3 ms inference per image.</span></span></div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Ultralytics YOLO</span><span class="tag">Classification</span><span class="tag">Matplotlib</span><span class="tag">Google Colab</span></div>
+          <div class="plinks">
+            <a class="btn primary" href="https://colab.research.google.com/drive/1zR32U9FV4NsOivAlztod-pGNqizBQh95?usp=sharing" target="_blank" rel="noopener"><span class="ar">افتح المشروع في Colab</span><span class="en">Open in Colab</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="proj">
+        <div class="shot"><span class="badge">Drones · SITL</span>
+          <div class="mission" role="img" aria-label="Flight plan: takeoff at home, fly to four waypoints around the fire point, return to launch">
+            <svg viewBox="0 0 400 190" preserveAspectRatio="xMidYMid meet" fill="none">
+              <circle cx="62" cy="62" r="30" fill="rgba(255,120,80,.10)" stroke="rgba(255,140,90,.5)" stroke-dasharray="3 4"/>
+              <path d="M352 164 L72 26 L26 48 L48 93 L94 71 L352 164" stroke="#9db0db" stroke-width="1.6" stroke-dasharray="5 5"/>
+              <g stroke="rgba(255,193,120,.55)" stroke-width="1"><path d="M72 26L62 62M26 48L62 62M48 93L62 62M94 71L62 62"/></g>
+              <circle cx="62" cy="62" r="6" fill="#ff8a5c"/>
+              <g fill="#0a1428" stroke="#9db0db" stroke-width="1.6"><circle cx="72" cy="26" r="7"/><circle cx="26" cy="48" r="7"/><circle cx="48" cy="93" r="7"/><circle cx="94" cy="71" r="7"/></g>
+              <g font-family="JetBrains Mono, monospace" font-size="8" fill="#e7edf9" text-anchor="middle"><text x="72" y="29">1</text><text x="26" y="51">2</text><text x="48" y="96">3</text><text x="94" y="74">4</text></g>
+              <rect x="344" y="156" width="16" height="16" rx="3" fill="#9db0db"/>
+              <g font-family="JetBrains Mono, monospace" font-size="9" fill="#8d9cc2"><text x="296" y="184">HOME · RTL</text><text x="100" y="118">ROI (fire)</text><text x="200" y="20">ALT 20 m · HOLD 15 s</text><text x="200" y="34">3 m/s · AUTO</text></g>
+            </svg>
+          </div>
+        </div>
+        <div class="pbody">
+          <div class="ctx"><span class="ar">معسكر الدرونز، مسار القمة، نادي طويق، جامعة أم القرى</span><span class="en">Drone camp, Summit Track, Tuwaiq Club, Umm Al-Qura University</span></div>
+          <h3><span class="ar">عين طويق: مهمة استطلاع حريق</span><span class="en">Tuwaiq Eye: Fire Recon Mission</span></h3>
+          <p><span class="ar">خططت ونفذت مهمة طيران ذاتية لدرون رباعي في بيئة محاكاة: إقلاع إلى 20 مترًا، ثم المرور على أربع نقاط حول موقع الحريق مع توجيه الكاميرا نحوه (ROI) والثبات 15 ثانية عند كل نقطة، ثم العودة والهبوط تلقائيًا.</span><span class="en">Planned and flew an autonomous quadcopter mission in simulation: take off to 20 m, visit four waypoints around the fire while facing it (ROI) and holding 15 s at each, then return and land automatically.</span></p>
+          <div class="result"><span class="mono">RESULT</span><span><span class="ar">نجاح المهمة: 4/4 نقاط، مدة 3:45 دقيقة، وهبوط آمن بالعودة التلقائية (RTL).</span><span class="en">Mission complete: 4/4 waypoints, 3:45 flight time, safe RTL landing.</span></span></div>
+          <div class="tags"><span class="tag">ArduPilot SITL</span><span class="tag">ArduCopter 4.7</span><span class="tag">QGroundControl</span><span class="tag">Mission planning</span><span class="tag">Flight log analysis</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="field">// stack</span><h2><span class="ar">الأدوات والمهارات</span><span class="en">Tools & Skills</span></h2></div></div>
+    <div class="skills">
+      <div class="sk"><h3><span class="ar">الذكاء التوليدي</span><span class="en">Generative AI</span></h3><div class="tags"><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Agents</span><span class="tag">LangChain</span><span class="tag">Prompting</span><span class="tag">Transformers</span></div></div>
+      <div class="sk"><h3><span class="ar">تعلم الآلة والرؤية</span><span class="en">ML & Vision</span></h3><div class="tags"><span class="tag">PyTorch</span><span class="tag">YOLO</span><span class="tag">Classification</span><span class="tag">Multimodal</span><span class="tag">Data quality</span></div></div>
+      <div class="sk"><h3><span class="ar">السحابة والنشر</span><span class="en">Cloud & Deploy</span></h3><div class="tags"><span class="tag">Azure AI</span><span class="tag">AWS</span><span class="tag">Hugging Face Spaces</span><span class="tag">Gradio</span><span class="tag">ChromaDB</span></div></div>
+      <div class="sk"><h3><span class="ar">البيانات</span><span class="en">Data</span></h3><div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Power BI</span><span class="tag">Matplotlib</span><span class="tag">Colab</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="field">// certifications</span><h2><span class="ar">الشهادات</span><span class="en">Certifications</span></h2>
+      <p><span class="ar">اضغط على أي شهادة لعرضها كاملة أو التحقق منها.</span><span class="en">Tap any certificate to view it in full or verify it.</span></p></div>
+
+    </div>
+    <div class="pro-row">
+      <article class="pro">
+        <div class="bdg"><img src="img/badge-nca-genl.png" alt="NVIDIA Certified Professional Gen AI LLMs badge"></div>
+        <div class="pinfo">
+          <span class="ribbon"><span class="ar">شهادة احترافية</span><span class="en">PROFESSIONAL CERTIFICATION</span></span>
+          <h3>NVIDIA-Certified Associate: Generative AI LLMs</h3>
+          <span class="piss">NVIDIA · NCA-GENL</span>
+          <dl><dt>Certified</dt><dd>Oct 2, 2026</dd><dt>Valid through</dt><dd>Oct 2, 2028</dd></dl>
+          <div class="plinks"><button type="button" class="btn primary" data-cert="nca-genl"><span class="ar">عرض الشهادة</span><span class="en">View certificate</span></button></div>
+        </div>
+      </article>
+      <article class="pro">
+        <div class="bdg"><img src="img/badge-ai900.png" alt="Microsoft Certified Fundamentals badge"></div>
+        <div class="pinfo">
+          <span class="ribbon"><span class="ar">شهادة احترافية</span><span class="en">PROFESSIONAL CERTIFICATION</span></span>
+          <h3>Microsoft Certified: Azure AI Fundamentals</h3>
+          <span class="piss">Microsoft · AI-900</span>
+          <dl><dt>Earned</dt><dd>Jan 23, 2026</dd><dt>Credential ID</dt><dd>3582D61C522F8AF7</dd></dl>
+          <div class="plinks"><a class="btn primary" href="https://learn.microsoft.com/en-us/users/ghalasalem-8737/credentials/certification/azure-ai-fundamentals?tab=credentials-tab" target="_blank" rel="noopener"><span class="ar">تحقق من Microsoft</span><span class="en">Verify on Microsoft</span></a><button type="button" class="btn" data-cert="ai-900"><span class="ar">عرض</span><span class="en">View</span></button></div>
+        </div>
+      </article>
+    </div>
+    <div class="sub-head"><h3><span class="ar">شهادات الدورات والبرامج التدريبية</span><span class="en">Course & Training Certificates</span></h3>
+      <div class="filters" role="group" aria-label="Filter">
+        <button type="button" class="chip" id="f-all" data-f="all" aria-pressed="true"><span class="ar">الكل</span><span class="en">All</span></button>
+        <button type="button" class="chip" id="f-gen" data-f="gen" aria-pressed="false"><span class="ar">ذكاء توليدي</span><span class="en">Generative AI</span></button>
+        <button type="button" class="chip" id="f-cloud" data-f="cloud" aria-pressed="false"><span class="ar">سحابة</span><span class="en">Cloud</span></button>
+        <button type="button" class="chip" id="f-ai" data-f="ai" aria-pressed="false"><span class="ar">ذكاء اصطناعي وبيانات</span><span class="en">AI & Data</span></button>
+      </div>
+    </div>
+    <div class="certs" id="certGrid"></div>
+  </div>
+</section>
+
+<!-- TALKS -->
+<section id="talks">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="field">// talks</span><h2><span class="ar">الدورات والورش التي قدّمتها</span><span class="en">Courses & Workshops I Delivered</span></h2>
+    <p><span class="ar">أقدّم دورات وورشًا في الذكاء الاصطناعي والبيانات والأمن السيبراني مع أندية وجهات داخل الجامعة.</span><span class="en">I teach courses and workshops on AI, data and cybersecurity with clubs and departments across the university.</span></p></div></div>
+    <div class="talk">
+      <div class="gallery">
+        <button type="button" data-img="img/wids-poster.jpg" data-cap="WiDS KSA 2025 · Najran University"><img src="img/wids-poster.jpg" alt="Workshop poster: Data quality is the foundation of AI success"></button>
+        <button type="button" data-img="img/wids-stage.jpg" data-cap="WiDS KSA 2025 · Najran University"><img src="img/wids-stage.jpg" alt="Workshop title slide on screen at the WiDS KSA venue"></button>
+        <button type="button" data-img="img/wids-demo.jpg" data-cap="Live demo · Teachable Machine"><img src="img/wids-demo.jpg" alt="Live Teachable Machine training demo on the presenter screen"></button>
+        <button type="button" data-img="img/wids-powerbi-poster.jpg" data-cap="From Numbers to Insight: hands-on Power BI · WiDS KSA 2025"><img src="img/wids-powerbi-poster.jpg" alt="Power BI workshop poster, WiDS KSA, 18 November 2025"></button>
+        <button type="button" data-img="img/wids-powerbi-stage.jpg" data-cap="From Numbers to Insight with Power BI · WiDS KSA 2025"><img src="img/wids-powerbi-stage.jpg" alt="Power BI workshop title slide at the WiDS KSA venue"></button>
+        <button type="button" data-img="img/wids-powerbi-demo.jpg" data-cap="Hands-on Power BI dashboard"><img src="img/wids-powerbi-demo.jpg" alt="Power BI dashboard built live during the workshop"></button>
+
+      </div>
+      <div class="talk-info">
+        <div class="event"><span>WiDS KSA 2025</span><span>17–18 Nov 2025</span><span class="ar">جامعة نجران</span><span class="en">Najran University</span><span>~80 <span class="ar">مستفيدًا</span><span class="en">attendees</span></span></div>
+        <div class="ws">
+          <h3><span class="ar">جودة البيانات أساس نجاح الذكاء الاصطناعي</span><span class="en">Data Quality: The Foundation of AI Success</span></h3>
+          <ol>
+            <li><span class="ar">مفهوم جودة البيانات وأثرها على أداء نموذج الذكاء الاصطناعي.</span><span class="en">What data quality means and how it shapes model performance.</span></li>
+            <li><span class="ar">عرض تطبيقي مباشر يوضح تأثير جودة البيانات في التدريب.</span><span class="en">A live demo showing data quality's effect during training.</span></li>
+            <li><span class="ar">مقارنة نتائج نموذجين مختلفين حسب جودة بياناتهما.</span><span class="en">Comparing two models trained on data of different quality.</span></li>
+          </ol>
+        </div>
+        <div class="ws">
+          <h3><span class="ar">من الأرقام للفهم: تجربة عملية مع Power BI</span><span class="en">From Numbers to Insight: Hands-on Power BI</span></h3>
+          <p><span class="ar">ورشة عملية بنى فيها المشاركون لوحة معلومات تفاعلية في Power BI من بيانات استبيان حقيقية، من الأرقام الخام إلى رسوم تشرح النتائج.</span><span class="en">A hands-on session where attendees built an interactive Power BI dashboard from real survey data, from raw numbers to charts that explain the findings.</span></p>
+        </div>
+        <div class="ws" style="border-color:var(--amber)">
+          <h3><span class="ar">درع شكر وتقدير للمتحدثة</span><span class="en">Speaker Appreciation Award</span></h3>
+          <p><span class="ar">كرّمتني الجامعة بدرع شكر وتقدير على مشاركتي متحدثةً في ملتقى WiDS نجران 2025.</span><span class="en">Honoured by the university with a speaker appreciation award at WiDS Najran 2025.</span></p>
+          <div class="plinks" style="margin-top:10px"><button type="button" class="btn" data-img="img/wids-award.jpg" data-cap="Speaker appreciation award · WiDS Najran 2025"><span class="ar">صورة الدرع</span><span class="en">Award photo</span></button><button type="button" class="btn" data-cert="wids-attendance"><span class="ar">شهادة الملتقى (9 ساعات)</span><span class="en">Forum certificate (9 h)</span></button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="courses">
+        <div class="crs"><div class="cw"><span>Zero Trust</span><span class="rel">Cloud</span></div><h3><span class="ar">أمن الثقة المعدومة (Zero Trust)</span><span class="en">Zero Trust Security</span></h3><p><span class="ar">بالتعاون مع عمادة الدراسات العليا والبحث العلمي، ضمن شهر التوعية بالأمن السيبراني.</span><span class="en">With the Deanship of Graduate Studies and Scientific Research, during Cybersecurity Awareness Month.</span></p><button type="button" class="btn" data-cert="zero-trust-thanks"><span class="ar">شهادة الشكر</span><span class="en">Certificate</span></button></div>
+        <div class="crs"><div class="cw"><span>AI × Security</span><span class="rel">AI</span></div><h3><span class="ar">الأمن السيبراني في عصر الذكاء الاصطناعي</span><span class="en">Cybersecurity in the Age of AI</span></h3><p><span class="ar">كيف يغيّر الذكاء الاصطناعي أساليب الهجوم والدفاع، وكيف نستخدمه بأمان.</span><span class="en">How AI changes both attack and defence, and how to use it safely.</span></p></div>
+        <div class="crs"><div class="cw"><span>Cyber Domains</span><span class="rel">Cloud</span></div><h3><span class="ar">مجالات الأمن السيبراني: أمن الشبكات وأمن السحابة</span><span class="en">Cybersecurity Domains: Network & Cloud Security</span></h3><p><span class="ar">قدّمت محوري أمن الشبكات وأمن السحابة ضمن الدورة.</span><span class="en">I delivered the network security and cloud security parts of the course.</span></p><button type="button" class="btn" data-img="img/talk-cyber-domains.jpg" data-cap="Cybersecurity Domains · Cybersecurity Club, Najran University"><span class="ar">صورة من الدورة</span><span class="en">Photo</span></button></div>
+        <div class="crs"><div class="cw"><span>IEEE</span></div><h3><span class="ar">حل المشكلات</span><span class="en">Problem Solving</span></h3><p><span class="ar">باستضافة من نادي IEEE كنخبة من طلاب كلية علوم الحاسب.</span><span class="en">Invited by the IEEE student club as one of the college's top computer science students.</span></p></div>
+        <div class="crs"><div class="cw"><span>Sep 2025</span></div><h3><span class="ar">أساسيات الأمن السيبراني</span><span class="en">Cybersecurity Fundamentals</span></h3><p><span class="ar">دورة مع نادي الأمن السيبراني لتعزيز الوعي الأمني وتنمية المهارات الأساسية في المجال.</span><span class="en">With the Cybersecurity Club, building security awareness and core skills in the field.</span></p><button type="button" class="btn" data-cert="cyber-fundamentals-thanks"><span class="ar">شهادة الشكر</span><span class="en">Certificate</span></button></div>
+        <div class="crs"><div class="cw"><span>16 Oct 2023 · GDSC</span></div><h3><span class="ar">توعية بالأمن السيبراني</span><span class="en">Cybersecurity Awareness</span></h3><p><span class="ar">لقاء توعوي مع نادي Google للطلبة المطورين (GDSC) بجامعة نجران.</span><span class="en">An awareness session with Google Developer Student Clubs (GDSC) at Najran University.</span></p><button type="button" class="btn" data-cert="gdsc-thanks"><span class="ar">شهادة الشكر</span><span class="en">Certificate</span></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="lead">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="field">// leadership</span><h2><span class="ar">القيادة والإنجازات</span><span class="en">Leadership & Achievements</span></h2></div></div>
+    <div class="lead">
+      <div class="lcard">
+        <span class="when"><span class="ar">سنة ونصف · مستمرة</span><span class="en">1.5 years · ongoing</span></span>
+        <h3><span class="ar">قائدة لجنة كتابة المحتوى</span><span class="en">Content Writing Committee Lead</span></h3>
+        <p><span class="ar">أقود لجنة كتابة المحتوى في نادي الأمن السيبراني بجامعة نجران منذ سنة ونصف: أخطط للمحتوى، وأوزع المهام حسب نقاط قوة الأعضاء، وأراجع وأتابع حتى النشر.</span><span class="en">Leading the Content Writing Committee at Najran University's Cybersecurity Club for a year and a half: planning content, assigning tasks to members' strengths, and reviewing through to publishing.</span></p>
+        <div class="plinks"><button type="button" class="btn" data-cert="content-lead-thanks"><span class="ar">شهادة شكر كقائدة الفريق</span><span class="en">Team lead certificate</span></button></div>
+      </div>
+      <div class="lcard">
+        <span class="when">#CyberAware · Oct 2026</span>
+        <h3><span class="ar">حملة CyberAware للتوعية الأمنية</span><span class="en">CyberAware Security Awareness Campaign</span></h3>
+        <p><span class="ar">أشرفت على الحملة كاملة في نادي الأمن السيبراني بجامعة نجران: المحتوى والتصاميم والتحديات التفاعلية ومسابقة "أبطال أكتوبر"، من التخطيط حتى النشر.</span><span class="en">Led the full campaign at Najran University's Cybersecurity Club: content, designs, interactive challenges and the "October Champions" competition, from planning to publishing.</span></p>
+        <div class="nums n4">
+          <div><b>15</b><span class="ar">نشرة توعوية</span><span class="en">posts</span></div>
+          <div><b>4</b><span class="ar">ثريدات</span><span class="en">threads</span></div>
+          <div><b>4</b><span class="ar">تحديات تفاعلية</span><span class="en">challenges</span></div>
+          <div><b>~500</b><span class="ar">مستفيد</span><span class="en">reached</span></div>
+        </div>
+      </div>
+      <div class="lcard">
+        <span class="when">AI League · Tuwaiq Academy</span>
+        <h3><span class="ar">نهائيات دوري الذكاء الاصطناعي</span><span class="en">AI League Finalist</span></h3>
+        <p><span class="ar">تأهلت إلى نهائي "دوري الذكاء الاصطناعي" من أكاديمية طويق، وحصلت على شهادة شكر وعرفان على تقديم حلول مبتكرة توظّف التقنيات الحديثة في قطاع الرياضة.</span><span class="en">Reached the final of Tuwaiq Academy's AI League and received a certificate of appreciation for innovative solutions applying modern technology to the sports sector.</span></p>
+        <div class="plinks"><button type="button" class="btn" data-cert="tuwaiq-ai-league"><span class="ar">عرض الشهادة</span><span class="en">View certificate</span></button></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h2><span class="ar">لنتواصل</span><span class="en">Let's connect</span></h2>
+      <p><span class="ar">يسعدني التعاون في مشاريع الذكاء الاصطناعي والتقنيات الناشئة.</span><span class="en">Happy to collaborate on AI and emerging-tech projects.</span></p>
+    </div>
+    <div class="links" style="margin-top:0">
+      <a class="btn" href="https://www.linkedin.com/in/ghalasalem" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/GhalaDev" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://huggingface.co/GhalaDev" target="_blank" rel="noopener">Hugging Face</a>
+      <a class="btn" href="https://x.com/Spark1e_G" target="_blank" rel="noopener">X</a>
+    </div>
+    <div class="copy">© 2026 Ghala Salem Al-Salem · GhalaDev</div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-labelledby="lbT">
+  <div class="lb-in">
+    <img id="lbImg" alt="">
+    <div class="lb-bar">
+      <span class="lb-t" id="lbT"></span>
+      <div class="lb-actions">
+        <a class="btn" id="lbOpen" target="_blank" rel="noopener"><span class="ar">فتح الصورة</span><span class="en">Open image</span></a>
+        <a class="btn" id="lbPdf" target="_blank" rel="noopener">PDF</a>
+        <a class="btn primary" id="lbVer" target="_blank" rel="noopener"><span class="ar">تحقق من الشهادة</span><span class="en">Verify</span></a>
+        <button type="button" class="x" id="lbX"><span class="ar">إغلاق</span><span class="en">Close</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var CERTS=[
+    {id:"nvidia-agentic",t:"Building Agentic AI Applications with LLMs",iss:"NVIDIA Deep Learning Institute",d:"Sep 2026",c:"gen",v:"https://learn.nvidia.com/certificates?id=z9aVMUAcTNm3hb-NxBGSnA"},
+    {id:"nvidia-rag",t:"Building RAG Agents with LLMs",iss:"NVIDIA Deep Learning Institute",d:"Sep 2026",c:"gen",v:"https://learn.nvidia.com/certificates?id=uQ8K60VwTXCk038u-KyQVQ"},
+    {id:"nvidia-knowledge",t:"Adding New Knowledge to LLMs",iss:"NVIDIA Deep Learning Institute",d:"Sep 2026",c:"gen",v:"https://learn.nvidia.com/certificates?id=h6VZjg1XQw6aqkQJLuW2Gg"},
+    {id:"nvidia-rapid",t:"Rapid Application Development with LLMs",iss:"NVIDIA Deep Learning Institute",d:"Sep 2026",c:"gen",v:"https://learn.nvidia.com/certificates?id=acXluh0mS4eW1vgMXcpmWg"},
+    {id:"aws-genai",t:"AWS Academy Graduate: Generative AI Foundations",iss:"AWS Academy · 12h",d:"Feb 2026",c:"gen cloud",v:"https://www.credly.com/badges/1b603372-4027-4862-bca6-101ddc960a1e"},
+    {id:"aws-cloud-foundations",t:"AWS Academy Graduate: Cloud Foundations",iss:"AWS Academy · 20h",d:"Jun 2025",c:"cloud",v:"https://www.credly.com/go/5ILTPfc4"},
+    {id:"azure-governance",t:"Microsoft Azure Fundamentals: Describe Azure Management and Governance",iss:"ICAIRE · 26h",d:"Sep 2025",c:"cloud"},
+    {id:"misk-microsoft",t:"Virtual Work Experience: Data Science & AI",iss:"Misk Foundation × Microsoft",d:"Jul 2026",c:"ai cloud"},
+    {id:"sdaia-cv",t:"Computer Vision for Developers",iss:"SDAIA",d:"May 2026",c:"ai"},
+    {id:"tuwaiq-ai-league",t:"AI League Finals: Certificate of Appreciation",iss:"Tuwaiq Academy",d:"2026",c:"ai"}
+  ];
+  var EXTRA={"nca-genl":{id:"nca-genl",t:"NVIDIA-Certified Associate: Generative AI LLMs (NCA-GENL)"},"ai-900":{id:"ai-900",t:"Microsoft Certified: Azure AI Fundamentals (AI-900)",v:"https://learn.microsoft.com/en-us/users/ghalasalem-8737/credentials/certification/azure-ai-fundamentals?tab=credentials-tab"},"wids-attendance":{id:"wids-attendance",t:"WiDS KSA 2025 · Najran University · 9 training hours"},"cyber-fundamentals-thanks":{id:"cyber-fundamentals-thanks",t:"Cybersecurity Fundamentals · Certificate of Appreciation"},"gdsc-thanks":{id:"gdsc-thanks",t:"GDSC Cybersecurity Awareness · Certificate of Appreciation"},"content-lead-thanks":{id:"content-lead-thanks",t:"Content Writing Team Lead · Certificate of Appreciation",nopdf:1},"genai-bootcamp":{id:"genai-bootcamp",t:"Generative AI Summer Bootcamp: Distinction",v:"https://yazeedalrubyli.github.io/genai-bootcamp-credentials/v/c1c35d706283cb1f",nopdf:1},"zero-trust-thanks":{id:"zero-trust-thanks",t:"Zero Trust Security · Certificate of Appreciation"},"tuwaiq-ai-league":{id:"tuwaiq-ai-league",t:"AI League Finals · Certificate of Appreciation",iss:"Tuwaiq Academy"}};
+  var root=document.documentElement, grid=document.getElementById("certGrid");
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+  grid.innerHTML=CERTS.map(function(c){
+    return '<button type="button" class="cert" data-cert="'+c.id+'" data-c="'+c.c+'">'+
+      '<div class="thumb"><img src="img/cert-'+c.id+'.jpg" alt=""></div>'+
+      '<div class="cb"><span class="iss">'+esc(c.iss)+'</span><h3>'+esc(c.t)+'</h3>'+
+      '<div class="meta"><span>'+c.d+'</span>'+(c.pro?'<span class="kind pro"><span class="ar">شهادة احترافية</span><span class="en">Professional</span></span>':(c.v?'<span class="kind"><span class="ar">قابلة للتحقق</span><span class="en">Verifiable</span></span>':''))+'</div></div></button>';
+  }).join("");
+
+  // filters
+  var chips=[].slice.call(document.querySelectorAll(".chip"));
+  chips.forEach(function(b){b.addEventListener("click",function(){
+    chips.forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
+    var f=b.dataset.f;
+    [].forEach.call(grid.children,function(el){el.hidden=!(f==="all"||el.dataset.c.split(" ").indexOf(f)>-1)});
+  })});
+
+  // lightbox
+  var lb=document.getElementById("lb"),lbImg=document.getElementById("lbImg"),lbT=document.getElementById("lbT"),lbPdf=document.getElementById("lbPdf"),lbVer=document.getElementById("lbVer"),last=null;
+  function find(id){for(var i=0;i<CERTS.length;i++)if(CERTS[i].id===id)return CERTS[i];return EXTRA[id]}
+  function open(src,title,pdf,ver){last=document.activeElement;lbImg.src=src;lbImg.alt=title;lbT.textContent=title;
+    document.getElementById("lbOpen").href=src;lbPdf.hidden=!pdf;if(pdf)lbPdf.href=pdf;lbVer.hidden=!ver;if(ver)lbVer.href=ver;lb.hidden=false;document.getElementById("lbX").focus()}
+  function close(){lb.hidden=true;lbImg.removeAttribute("src");if(last)last.focus()}
+  document.addEventListener("click",function(e){
+    var c=e.target.closest("[data-cert]");
+    if(c){var o=find(c.dataset.cert);open("img/cert-"+o.id+".jpg",o.t,o.nopdf?null:"certs/"+o.id+".pdf",o.v);return}
+    var g=e.target.closest("[data-img]");
+    if(g){open(g.dataset.img,g.dataset.cap,null,null);return}
+    if(e.target===lb)close();
+  });
+  document.getElementById("lbX").addEventListener("click",close);
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!lb.hidden)close()});
+
+  // language
+  function setLang(l){root.setAttribute("data-l",l);root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
+    document.getElementById("l-ar").setAttribute("aria-pressed",l==="ar");document.getElementById("l-en").setAttribute("aria-pressed",l==="en");
+    try{localStorage.setItem("gs-lang",l)}catch(e){}}
+  var saved=null;try{saved=localStorage.getItem("gs-lang")}catch(e){}
+  setLang(saved==="en"?"en":"ar");
+  [].forEach.call(document.querySelectorAll(".lang button"),function(b){b.addEventListener("click",function(){setLang(b.dataset.set)})});
+
+  // ambient network in hero
+  var cv=document.getElementById("net"),ctx=cv.getContext("2d"),pts=[],edges=[],pulses=[],W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,2);
+  var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function build(){var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    pts=[];edges=[];var n=Math.round(W*H/14000),s=1;
+    function rnd(){s=(s*9301+49297)%233280;return s/233280}
+    for(var i=0;i<n;i++)pts.push({x:rnd()*W,y:rnd()*H});
+    for(i=0;i<n;i++)for(var j=i+1;j<n;j++){var dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;if(dx*dx+dy*dy<120*120)edges.push([i,j])}
+    pulses=[];for(i=0;i<Math.min(14,edges.length);i++)pulses.push({e:Math.floor(rnd()*edges.length),t:rnd(),v:.0025+rnd()*.004});}
+  function draw(){ctx.clearRect(0,0,W,H);ctx.lineWidth=1;ctx.strokeStyle="rgba(110,135,220,.14)";ctx.beginPath();
+    edges.forEach(function(e){var a=pts[e[0]],b=pts[e[1]];ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y)});ctx.stroke();
+    ctx.fillStyle="rgba(140,170,230,.35)";pts.forEach(function(p){ctx.fillRect(p.x-1,p.y-1,2,2)});
+    pulses.forEach(function(p){var e=edges[p.e],a=pts[e[0]],b=pts[e[1]],x=a.x+(b.x-a.x)*p.t,y=a.y+(b.y-a.y)*p.t;
+      var g=ctx.createRadialGradient(x,y,0,x,y,10);g.addColorStop(0,"rgba(157,176,219,.9)");g.addColorStop(1,"rgba(157,176,219,0)");ctx.fillStyle=g;ctx.fillRect(x-10,y-10,20,20);
+      if(!still){p.t+=p.v;if(p.t>1){p.t=0;var nb=edges.map(function(x,i){return i}).filter(function(i){return edges[i][0]===e[1]||edges[i][1]===e[1]});p.e=nb.length?nb[Math.floor(Math.random()*nb.length)]:Math.floor(Math.random()*edges.length)}}});
+    if(!still)requestAnimationFrame(draw);}
+  build();draw();
+  var rt;window.addEventListener("resize",function(){clearTimeout(rt);rt=setTimeout(function(){build();if(still)draw()},150)});
+})();
+</script>
+
+</body>
+</html>
