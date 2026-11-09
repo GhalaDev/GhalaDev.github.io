@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="icon" href="favicon.svg">
 <meta property="og:title" content="Ghala Salem Al-Salem · Portfolio">
-<meta property="og:description" content="AI & Cloud · Projects, certifications, workshops and leadership">
 <title>Ghala Salem Portfolio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Ghala Salem Al-Salem — AI & Cloud. Projects, certifications, workshops and leadership.">
@@ -182,7 +181,7 @@ html[data-l="ar"] .pipe li.arr{transform:scaleX(-1)}
 .nums b{direction:ltr;display:block;font-family:var(--f-mono);color:var(--amber);font-size:17px;font-variant-numeric:tabular-nums}
 
 /* skills */
-.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
 .sk{background:var(--deep);border:1px solid var(--line);border-radius:var(--r);padding:18px;min-width:0}
 .sk h3{font-size:15px;font-weight:700;margin-bottom:10px}
 
@@ -267,6 +266,53 @@ footer p{color:var(--mute);margin:4px 0 0}
 .sub-head h3{font-size:19px;font-weight:700}
 @media (max-width:900px){.pro-row{grid-template-columns:1fr}}
 @media (max-width:560px){.pro{grid-template-columns:1fr;justify-items:start;padding:22px}.pro .bdg{width:120px;height:120px}.pro .bdg img{max-width:100px;max-height:108px}}
+
+/* design */
+.dz-intro{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;background:linear-gradient(135deg,#120a2a,var(--deep) 55%);border:1px solid var(--line);border-radius:20px;padding:30px;overflow:hidden;position:relative}
+.dz-intro::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(140,90,230,.22),transparent 65%);inset-inline-start:-80px;top:-60px;pointer-events:none}
+.fan{position:relative;height:430px;direction:ltr}
+.fan button{all:unset;cursor:zoom-in;position:absolute;left:50%;top:50%;width:40%;aspect-ratio:900/1662;border-radius:12px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.08);transform:translate(-50%,-50%) translateX(var(--x)) rotate(var(--r)) scale(var(--s,1));transition:transform .35s ease,box-shadow .35s;z-index:var(--z)}
+.fan button img{width:100%;height:100%;object-fit:cover;display:block}
+.fan button:hover,.fan button:focus-visible{transform:translate(-50%,-54%) translateX(var(--x)) rotate(calc(var(--r) * .4)) scale(calc(var(--s,1) + .04));z-index:9;box-shadow:0 26px 60px rgba(0,0,0,.7)}
+.fan button:focus-visible{outline:2px solid var(--sig);outline-offset:3px}
+.dz-info{position:relative;display:flex;flex-direction:column;gap:14px;min-width:0}
+.dz-info h3{font-size:clamp(22px,2.6vw,28px);font-weight:800;line-height:1.35}
+.dz-info p{margin:0;color:#c9d3ea}
+.dz-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.dz-nums div{background:rgba(6,12,26,.6);border:1px solid var(--line);border-radius:12px;padding:10px 6px;text-align:center;font-size:12px;color:var(--mute);line-height:1.4}
+.dz-nums b{display:block;direction:ltr;font-family:var(--f-mono);font-size:20px;color:#c7b4ff;font-variant-numeric:tabular-nums}
+.dz-principles{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px;color:#c9d3ea}
+.dz-principles li{display:flex;gap:10px;align-items:flex-start}
+.dz-principles li::before{content:"";flex:none;width:8px;height:8px;margin-top:9px;border-radius:2px;background:#9b7bf0;transform:rotate(45deg)}
+.dsub{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:44px 0 16px;flex-wrap:wrap}
+.dsub h3{font-size:20px;font-weight:800}
+.dsub span{font-size:13.5px;color:var(--mute)}
+.dgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+#dPosters{grid-template-columns:repeat(7,1fr);gap:12px}
+.dcard{all:unset;cursor:zoom-in;display:flex;flex-direction:column;gap:9px;min-width:0}
+.dcard .dimg{aspect-ratio:900/1662;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#120a26;transition:transform .25s,border-color .25s,box-shadow .25s}
+.dcard img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.dcard:hover .dimg{transform:translateY(-4px);border-color:rgba(170,140,255,.6);box-shadow:0 14px 30px rgba(0,0,0,.45)}
+.dcard:focus-visible .dimg{outline:2px solid var(--sig);outline-offset:3px}
+.dcard .cap{font-size:13.5px;font-weight:600;line-height:1.4}
+.dcard .cap small{display:block;font-weight:400;color:var(--mute);font-size:12px;margin-top:2px}
+.dcol{display:flex;flex-direction:column;gap:9px;min-width:0}
+.dcol .btn{align-self:flex-start;padding:6px 11px;font-size:12.5px}
+.thread{background:var(--deep);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;grid-template-columns:220px 1fr;gap:22px;align-items:center;margin-bottom:16px;min-width:0}
+.thread .tinfo{display:flex;flex-direction:column;gap:8px;min-width:0}
+.thread .tinfo .when{font-family:var(--f-mono);font-size:12px;color:#b9a5ff;direction:ltr;text-align:start}
+.thread .tinfo h4{font-size:18px;font-weight:800;line-height:1.4}
+.thread .tinfo p{margin:0;color:var(--mute);font-size:14px}
+.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;min-width:0;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.strip .dcol{scroll-snap-align:start}
+.strip .num{font-family:var(--f-mono);font-size:11.5px;color:var(--mute);direction:ltr;text-align:start}
+.lb.dark img{background:#0d0820}
+.lb .nav-b{all:unset;cursor:pointer;font-size:14px;padding:8px 14px;border:1px solid var(--line);border-radius:10px;background:var(--deep);font-family:var(--f-mono)}
+.lb .nav-b[hidden]{display:none}
+.lb .cnt{font-family:var(--f-mono);font-size:12.5px;color:var(--mute);direction:ltr}
+.lb .cnt:empty{display:none}
+@media (max-width:900px){.dgrid{grid-template-columns:repeat(3,1fr)}#dPosters{grid-template-columns:repeat(4,1fr)}.dz-intro{grid-template-columns:1fr;padding:22px}.fan{height:380px}.thread{grid-template-columns:1fr}}
+@media (max-width:560px){.fan{height:300px}.fan button{width:50%}.dz-nums{grid-template-columns:repeat(2,1fr)}.dgrid,#dPosters{grid-template-columns:repeat(2,1fr);gap:12px}.strip{--sw:128px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}.feat::after,.pro::after{animation:none;display:none}}
 </style>
 </head>
@@ -277,6 +323,7 @@ footer p{color:var(--mute);margin:4px 0 0}
     <a class="brand" href="#top"><span class="dot"></span><b>GhalaDev</b><span>/ portfolio</span></a>
     <nav class="nav" aria-label="Sections">
       <a href="#projects"><span class="ar">المشاريع</span><span class="en">Projects</span></a>
+      <a href="#design"><span class="ar">التصميم</span><span class="en">Design</span></a>
       <a href="#certs"><span class="ar">الشهادات</span><span class="en">Certifications</span></a>
       <a href="#talks"><span class="ar">الدورات</span><span class="en">Teaching</span></a>
       <a href="#lead"><span class="ar">القيادة</span><span class="en">Leadership</span></a>
@@ -293,12 +340,13 @@ footer p{color:var(--mute);margin:4px 0 0}
   <canvas id="net" aria-hidden="true"></canvas>
   <div class="wrap">
     <div>
-      <span class="eyebrow"><span class="ar">ذكاء اصطناعي · حوسبة سحابية · ذكاء توليدي</span><span class="en">AI · Cloud · Generative AI</span></span>
+      <span class="eyebrow"><span class="ar">ذكاء اصطناعي · حوسبة سحابية · تصميم بصري</span><span class="en">AI · Cloud · Visual Design</span></span>
       <h1><span class="ar">غلا سالم <span class="accent">آل سالم</span></span><span class="en">Ghala Salem <span class="accent">Al-Salem</span></span></h1>
-      <div class="role"><span class="ar">طالبة علوم حاسب، جامعة نجران · مطوّرة حلول ذكاء اصطناعي</span><span class="en">Computer Science student, Najran University · AI solutions developer</span></div>
-      <p class="lede"><span class="ar">أبني تطبيقات ذكاء اصطناعي تعمل فعلًا: من نماذج اللغة والتوليد، إلى استرجاع المعرفة (RAG) ورؤية الحاسب، وأنشرها على Hugging Face ليجربها أي شخص. أحمل شهادات احترافية من Microsoft وNVIDIA وAWS، وأقدّم ورش عمل، وأقود فرقًا طلابية.</span><span class="en">I build AI applications that actually run: language and generative models, retrieval-augmented generation (RAG) and computer vision, deployed on Hugging Face for anyone to try. I hold professional certifications from Microsoft, NVIDIA and AWS, deliver workshops, and lead student teams.</span></p>
+      <div class="role"><span class="ar">طالبة علوم حاسب، جامعة نجران · مطوّرة حلول ذكاء اصطناعي ومصممة محتوى</span><span class="en">Computer Science student, Najran University · AI developer & content designer</span></div>
+      <p class="lede"><span class="ar">أبني تطبيقات ذكاء اصطناعي تعمل فعلًا: من نماذج اللغة والتوليد، إلى استرجاع المعرفة (RAG) ورؤية الحاسب، وأنشرها على Hugging Face ليجربها أي شخص. أحمل شهادات احترافية من Microsoft وNVIDIA وAWS، وأقدّم ورش عمل، وأقود فرقًا طلابية، وأصمم المحتوى البصري للحملات التوعوية.</span><span class="en">I build AI applications that actually run: language and generative models, retrieval-augmented generation (RAG) and computer vision, deployed on Hugging Face for anyone to try. I hold professional certifications from Microsoft, NVIDIA and AWS, deliver workshops, lead student teams, and design visual content for awareness campaigns.</span></p>
       <div class="links">
         <a class="btn primary" href="#projects"><span class="ar">استعرض المشاريع</span><span class="en">See projects</span></a>
+        <a class="btn" href="#design"><span class="ar">تصاميمي</span><span class="en">My designs</span></a>
         <a class="btn" href="https://www.linkedin.com/in/ghalasalem" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.35h-4v-4.74c0-1.13-.02-2.59-1.58-2.59-1.58 0-1.82 1.23-1.82 2.5v4.83h-4z"/></svg>LinkedIn</a>
         <a class="btn" href="https://github.com/GhalaDev" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</a>
         <a class="btn" href="https://huggingface.co/GhalaDev" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M8.5 14.5c1.8 1.8 5.2 1.8 7 0"/></svg>Hugging Face</a>
@@ -311,7 +359,7 @@ footer p{color:var(--mute);margin:4px 0 0}
       <dl class="spec">
         <dt>name</dt><dd><span class="ar">غلا سالم آل سالم</span><span class="en">Ghala Salem Al-Salem</span></dd>
         <dt>education</dt><dd><span class="ar">بكالوريوس علوم الحاسب، جامعة نجران، المستوى التاسع</span><span class="en">B.Sc. Computer Science, Najran University, level 9</span></dd>
-        <dt>domains</dt><dd><span class="ar">ذكاء توليدي · RAG · رؤية حاسب · سحابة</span><span class="en">GenAI · RAG · Computer Vision · Cloud</span></dd>
+        <dt>domains</dt><dd><span class="ar">ذكاء توليدي · RAG · رؤية حاسب · سحابة · تصميم</span><span class="en">GenAI · RAG · Computer Vision · Cloud · Design</span></dd>
         <dt>certified_by</dt><dd>Microsoft · NVIDIA · AWS · SDAIA</dd>
         <dt>also</dt><dd><span class="ar">قائدة لجنة كتابة المحتوى، ومقدّمة دورات وورش</span><span class="en">Content committee lead, trainer and speaker</span></dd>
       </dl>
@@ -463,11 +511,52 @@ footer p{color:var(--mute);margin:4px 0 0}
   </div>
 </section>
 
+<!-- DESIGN -->
+<section id="design">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="field">// design</span><h2><span class="ar">التصميم البصري</span><span class="en">Visual Design</span></h2>
+      <p><span class="ar">تصاميم صممتها بنفسي. اضغط على أي تصميم لعرضه بالحجم الكامل.</span><span class="en">Designs I made myself. Tap any design to view it full size.</span></p></div>
+    </div>
+
+    <div class="dz-intro">
+      <div class="fan" id="fan"></div>
+      <div class="dz-info">
+        <span class="ctx"><span class="ar">حملة <bdi dir="ltr">#CyberAware</bdi> · نادي الأمن السيبراني، جامعة نجران · أكتوبر 2026</span><span class="en">#CyberAware campaign · Cybersecurity Club, Najran University · Oct 2026</span></span>
+        <h3><span class="ar">هوية بصرية لشهر التوعية بالأمن السيبراني</span><span class="en">A visual identity for Cybersecurity Awareness Month</span></h3>
+        <p><span class="ar">صممت النشرات والثريدات وبوسترات الفعاليات والتحديات على هوية واحدة، بحيث يعرف المتابع أن التصميم من النادي من أول نظرة.</span><span class="en">I designed the posts, threads, event posters and challenge posters on one identity, so followers recognise the club's work at first glance.</span></p>
+        <ul class="dz-principles">
+          <li><span class="ar">خلفية بنفسجية داكنة ثابتة، مع شعار النادي والجامعة في الأعلى وتذييل <bdi dir="ltr">CSC_NU</bdi> و<bdi dir="ltr">#CyberAware</bdi></span><span class="en">A consistent dark purple base, club and university logos on top, CSC_NU and #CyberAware footer</span></li>
+          <li><span class="ar">عنوان إنجليزي كبير يجذب العين، وتحته عنوان عربي يوضح الفكرة</span><span class="en">A bold English title to catch the eye, with an Arabic subtitle that explains</span></li>
+          <li><span class="ar">رسمة ثلاثية الأبعاد توصل الفكرة قبل النص، ثم خطوات مرقّمة سهلة القراءة على الجوال</span><span class="en">A 3D illustration that tells the idea before the text, then numbered steps easy to read on mobile</span></li>
+        </ul>
+        <div class="dz-nums">
+          <div><b>9</b><span class="ar">نشرات توعوية</span><span class="en">awareness posts</span></div>
+          <div><b>13</b><span class="ar">شريحة في ثريدين</span><span class="en">thread slides</span></div>
+          <div><b>7</b><span class="ar">بوسترات</span><span class="en">posters</span></div>
+          <div><b>+120K</b><span class="ar">مشاهدة للحملة</span><span class="en">campaign views</span></div>
+        </div>
+        <div class="tags"><span class="tag">Canva</span><span class="tag">Visual identity</span><span class="tag">Social media</span><span class="tag">AR / EN typography</span><span class="tag">3D illustration</span></div>
+      </div>
+    </div>
+
+    <div class="dsub"><h3><span class="ar">النشرات التوعوية</span><span class="en">Awareness posts</span></h3><span><span class="ar">9 تصاميم · منصة X</span><span class="en">9 designs · X</span></span></div>
+    <div class="dgrid" id="dPosts"></div>
+
+    <div class="dsub"><h3><span class="ar">الثريدات</span><span class="en">Threads</span></h3><span><span class="ar">اسحب لعرض الشرائح</span><span class="en">Swipe through the slides</span></span></div>
+    <div id="dThreads"></div>
+
+    <div class="dsub"><h3><span class="ar">بوسترات الفعاليات والتحديات</span><span class="en">Event & challenge posters</span></h3><span><span class="ar">7 بوسترات</span><span class="en">7 posters</span></span></div>
+    <div class="dgrid" id="dPosters"></div>
+  </div>
+</section>
+
 <!-- SKILLS -->
 <section id="skills">
   <div class="wrap">
     <div class="sec-head"><div><span class="field">// stack</span><h2><span class="ar">الأدوات والمهارات</span><span class="en">Tools & Skills</span></h2></div></div>
     <div class="skills">
+      <div class="sk"><h3><span class="ar">التصميم</span><span class="en">Design</span></h3><div class="tags"><span class="tag">Canva</span><span class="tag">Visual identity</span><span class="tag">Social media</span><span class="tag">Typography</span><span class="tag">Posters</span></div></div>
       <div class="sk"><h3><span class="ar">الذكاء التوليدي</span><span class="en">Generative AI</span></h3><div class="tags"><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">Agents</span><span class="tag">LangChain</span><span class="tag">Prompting</span><span class="tag">Transformers</span></div></div>
       <div class="sk"><h3><span class="ar">تعلم الآلة والرؤية</span><span class="en">ML & Vision</span></h3><div class="tags"><span class="tag">PyTorch</span><span class="tag">YOLO</span><span class="tag">Classification</span><span class="tag">Multimodal</span><span class="tag">Data quality</span></div></div>
       <div class="sk"><h3><span class="ar">السحابة والنشر</span><span class="en">Cloud & Deploy</span></h3><div class="tags"><span class="tag">Azure AI</span><span class="tag">AWS</span><span class="tag">Hugging Face Spaces</span><span class="tag">Gradio</span><span class="tag">ChromaDB</span></div></div>
@@ -580,12 +669,12 @@ footer p{color:var(--mute);margin:4px 0 0}
       <div class="lcard">
         <span class="when">#CyberAware · Oct 2026</span>
         <h3><span class="ar">حملة CyberAware للتوعية الأمنية</span><span class="en">CyberAware Security Awareness Campaign</span></h3>
-        <p><span class="ar">أشرفت على الحملة كاملة في نادي الأمن السيبراني بجامعة نجران: المحتوى والتصاميم والتحديات التفاعلية ومسابقة "أبطال أكتوبر"، من التخطيط حتى النشر.</span><span class="en">Led the full campaign at Najran University's Cybersecurity Club: content, designs, interactive challenges and the "October Champions" competition, from planning to publishing.</span></p>
+        <p><span class="ar">أشرفت على الحملة كاملة في نادي الأمن السيبراني بجامعة نجران: المحتوى والتصاميم والفعاليات و4 ثريدات و4 تحديات تفاعلية ومسابقة "أبطال أكتوبر"، من التخطيط حتى النشر.</span><span class="en">Led the full campaign at Najran University's Cybersecurity Club: content, designs, events, 4 threads, 4 interactive challenges and the "October Champions" competition, from planning to publishing.</span></p>
         <div class="nums n4">
           <div><b>15</b><span class="ar">نشرة توعوية</span><span class="en">posts</span></div>
-          <div><b>4</b><span class="ar">ثريدات</span><span class="en">threads</span></div>
-          <div><b>4</b><span class="ar">تحديات تفاعلية</span><span class="en">challenges</span></div>
-          <div><b>~500</b><span class="ar">مستفيد</span><span class="en">reached</span></div>
+          <div><b>5</b><span class="ar">فعاليات</span><span class="en">events</span></div>
+          <div><b>774</b><span class="ar">مستفيد</span><span class="en">attendees</span></div>
+          <div><b>+120K</b><span class="ar">مشاهدة</span><span class="en">views</span></div>
         </div>
       </div>
       <div class="lcard">
@@ -619,8 +708,9 @@ footer p{color:var(--mute);margin:4px 0 0}
   <div class="lb-in">
     <img id="lbImg" alt="">
     <div class="lb-bar">
-      <span class="lb-t" id="lbT"></span>
+      <span class="lb-t" id="lbT"></span><span class="cnt" id="lbCnt"></span>
       <div class="lb-actions">
+        <button type="button" class="nav-b" id="lbPrev" hidden aria-label="Previous">&lsaquo;</button><button type="button" class="nav-b" id="lbNext" hidden aria-label="Next">&rsaquo;</button>
         <a class="btn" id="lbOpen" target="_blank" rel="noopener"><span class="ar">فتح الصورة</span><span class="en">Open image</span></a>
         <a class="btn" id="lbPdf" target="_blank" rel="noopener">PDF</a>
         <a class="btn primary" id="lbVer" target="_blank" rel="noopener"><span class="ar">تحقق من الشهادة</span><span class="en">Verify</span></a>
@@ -665,9 +755,9 @@ footer p{color:var(--mute);margin:4px 0 0}
   // lightbox
   var lb=document.getElementById("lb"),lbImg=document.getElementById("lbImg"),lbT=document.getElementById("lbT"),lbPdf=document.getElementById("lbPdf"),lbVer=document.getElementById("lbVer"),last=null;
   function find(id){for(var i=0;i<CERTS.length;i++)if(CERTS[i].id===id)return CERTS[i];return EXTRA[id]}
-  function open(src,title,pdf,ver){last=document.activeElement;lbImg.src=src;lbImg.alt=title;lbT.textContent=title;
+  function open(src,title,pdf,ver){last=document.activeElement;cur=null;lb.classList.remove("dark");lbCnt.textContent="";lbPrev.hidden=lbNext.hidden=true;lbImg.src=src;lbImg.alt=title;lbT.textContent=title;
     document.getElementById("lbOpen").href=src;lbPdf.hidden=!pdf;if(pdf)lbPdf.href=pdf;lbVer.hidden=!ver;if(ver)lbVer.href=ver;lb.hidden=false;document.getElementById("lbX").focus()}
-  function close(){lb.hidden=true;lbImg.removeAttribute("src");if(last)last.focus()}
+  function close(){lb.hidden=true;cur=null;lb.classList.remove("dark");lbImg.removeAttribute("src");if(last)last.focus()}
   document.addEventListener("click",function(e){
     var c=e.target.closest("[data-cert]");
     if(c){var o=find(c.dataset.cert);open("img/cert-"+o.id+".jpg",o.t,o.nopdf?null:"certs/"+o.id+".pdf",o.v);return}
@@ -677,6 +767,34 @@ footer p{color:var(--mute);margin:4px 0 0}
   });
   document.getElementById("lbX").addEventListener("click",close);
   document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!lb.hidden)close()});
+
+
+  // design gallery
+  var D={
+    posts:[["wifi","الشبكات العامة","Public Wi-Fi","10.18"],["social","الهندسة الاجتماعية","Social Engineering","10.11"],["sessions","الجلسات النشطة","Active Sessions","10.21"],["mfa","المصادقة متعددة العوامل","Multi-Factor Authentication","10.08"],["hacked","ماذا تفعل إذا تم اختراق حسابك؟","What to do if you're hacked","10.19"],["passwords","كلمة مرورك","Your password","10.03"],["updates","تحديثات النظام","System Updates","10.12"],["check","الفحص الأمني","Security Check","10.20"],["phishing","التصيد الاحتيالي","Phishing","10.02"]].map(function(a){return{src:"img/design/post-"+a[0],ar:a[1],en:a[2],d:a[3]}}),
+    threads:[
+      {id:"osint",n:7,d:"10.09",ar:"كيف يجمع المهاجم معلومات عنك قبل الهجوم؟",en:"How attackers gather information about you",tagAr:"ثريد OSINT · 7 شرائح",tagEn:"OSINT thread · 7 slides",pAr:"من البصمة الرقمية إلى التسريبات، وكيف تقلّل المعلومات المتاحة عنك.",pEn:"From your digital footprint to data leaks, and how to reduce what's out there."},
+      {id:"deepfake",n:6,d:"10.16",ar:"شفت؟ سمعت؟ متأكد؟",en:"Saw it? Heard it? Sure?",tagAr:"ثريد Deepfake · 6 شرائح",tagEn:"Deepfake thread · 6 slides",pAr:"التزييف العميق: كيف يستغله المحتالون وكيف تكشف علاماته.",pEn:"Deepfakes: how scammers use them and how to spot the signs."}],
+    posters:[["ev-sed","اليوم التوعوي بالهندسة الاجتماعية","Social Engineering Awareness Day","10.06"],["ev-dpd","يوم الحماية الرقمية والتصدي للمخاطر","Digital Protection Day","10.07"],["ev-hacker","لقاء تقني: Think Like a Hacker","Tech talk: Think Like a Hacker","09.30"],["ch-spot","تحدي اكتشف الخطأ","Challenge: Spot the Error","10.10"],["ch-deepfake","تحدي مين الحقيقي؟","Challenge: Who's Real?","10.17"],["ch-osint","تحدي المحقق الرقمي","Challenge: Digital Detective","10.24","https://nu-digital-detective.netlify.app/"],["ch-24h","التحدي الختامي: 24 ساعة","Final challenge: 24 Hours","10.31","https://final-challenge24.netlify.app/"]].map(function(a){return{src:"img/design/"+a[0],ar:a[1],en:a[2],d:a[3],link:a[4]}})
+  };
+  D.threads.forEach(function(t){t.slides=[];for(var i=1;i<=t.n;i++)t.slides.push({src:"img/design/"+t.id+"-"+i,ar:t.ar+" · "+i+"/"+t.n,en:t.en+" · "+i+"/"+t.n})});
+  var GROUPS={posts:D.posts,posters:D.posters};D.threads.forEach(function(t){GROUPS["t-"+t.id]=t.slides});
+  function bil(ar,en){return '<span class="ar">'+esc(ar)+'</span><span class="en">'+esc(en)+'</span>'}
+  function card(it,g,i,small){return '<button type="button" class="dcard" data-g="'+g+'" data-i="'+i+'"><div class="dimg"><img src="'+it.src+'-t.jpg" alt="'+esc(it.en)+'" loading="lazy"></div>'+(small?'':'<span class="cap">'+bil(it.ar,it.en)+'<small dir="ltr">'+it.d+'</small></span>')+'</button>'}
+  document.getElementById("dPosts").innerHTML=D.posts.map(function(it,i){return card(it,"posts",i)}).join("");
+  document.getElementById("dPosters").innerHTML=D.posters.map(function(it,i){return '<div class="dcol">'+card(it,"posters",i)+(it.link?'<a class="btn" href="'+it.link+'" target="_blank" rel="noopener">'+bil("جرّب التحدي","Try the challenge")+'</a>':'')+'</div>'}).join("");
+  document.getElementById("dThreads").innerHTML=D.threads.map(function(t){return '<article class="thread"><div class="tinfo"><span class="when">'+t.d+' · X</span><span class="ctx">'+bil(t.tagAr,t.tagEn)+'</span><h4>'+bil(t.ar,t.en)+'</h4><p>'+bil(t.pAr,t.pEn)+'</p></div><div class="strip">'+t.slides.map(function(s,i){return '<div class="dcol" style="flex:0 0 auto">'+card(s,"t-"+t.id,i,1).replace('class="dcard"','class="dcard" style="width:var(--sw,150px)"')+'<span class="num">'+(i+1<10?"0":"")+(i+1)+'</span></div>'}).join("")+'</div></article>'}).join("");
+  var fanPick=[["posts",8,-62,-12,.82,1],["t-deepfake",0,-32,-6,.9,2],["posters",0,0,0,1,3],["t-osint",0,32,6,.9,2],["posts",3,62,12,.82,1]];
+  document.getElementById("fan").innerHTML=fanPick.map(function(f){var it=GROUPS[f[0]][f[1]];return '<button type="button" data-g="'+f[0]+'" data-i="'+f[1]+'" style="--x:'+f[2]+'%;--r:'+f[3]+'deg;--s:'+f[4]+';--z:'+f[5]+'" aria-label="'+esc(it.en)+'"><img src="'+it.src+'-t.jpg" alt=""></button>'}).join("");
+  var cur=null,lbCnt=document.getElementById("lbCnt"),lbPrev=document.getElementById("lbPrev"),lbNext=document.getElementById("lbNext");
+  function showD(g,i){var arr=GROUPS[g];i=(i+arr.length)%arr.length;cur={g:g,i:i};var it=arr[i],l=root.getAttribute("data-l");
+    lbImg.src=it.src+".jpg";lbImg.alt=it[l];lbT.textContent=it[l];document.getElementById("lbOpen").href=it.src+".jpg";
+    lbCnt.textContent=(i+1)+" / "+arr.length;lbPrev.hidden=lbNext.hidden=arr.length<2}
+  document.addEventListener("click",function(e){var c=e.target.closest("[data-g]");if(!c)return;
+    last=document.activeElement;lb.classList.add("dark");lbPdf.hidden=true;lbVer.hidden=true;showD(c.dataset.g,+c.dataset.i);lb.hidden=false;document.getElementById("lbX").focus()});
+  lbPrev.addEventListener("click",function(){if(cur)showD(cur.g,cur.i-1)});
+  lbNext.addEventListener("click",function(){if(cur)showD(cur.g,cur.i+1)});
+  document.addEventListener("keydown",function(e){if(lb.hidden||!cur)return;var rtl=root.dir==="rtl";if(e.key==="ArrowLeft")showD(cur.g,cur.i+(rtl?1:-1));if(e.key==="ArrowRight")showD(cur.g,cur.i+(rtl?-1:1))});
 
   // language
   function setLang(l){root.setAttribute("data-l",l);root.lang=l;root.dir=l==="ar"?"rtl":"ltr";
